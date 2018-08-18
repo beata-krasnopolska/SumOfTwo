@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SumOfTwoArr
 {
@@ -6,12 +7,13 @@ namespace SumOfTwoArr
     {
         static void Main(string[] args)
         {
-            int[] a = { 1, 2, 3 };
-            int[] b = { 10, 20, 30, 40 };
+            int[] a = Enumerable.Range(1, 100000).ToArray();
+            int[] b = Enumerable.Range(1, 10000).ToArray();
             int v = 42;
 
             var sumNumber = new SumNumbers();
             var result = sumNumber.SumOfTwo(a, b, v);
+            var result2 = sumNumber.SumOfTwoV2(a, b, v);
 
             Console.WriteLine(result);
 

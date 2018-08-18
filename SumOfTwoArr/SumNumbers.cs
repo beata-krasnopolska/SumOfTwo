@@ -1,13 +1,11 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace SumOfTwoArr
 {
     class SumNumbers
     {
-          public bool SumOfTwo(int[] a, int[] b, int v)
+        public bool SumOfTwo(int[] a, int[] b, int v)
         {
-            v = 0;
-
             bool sumPossible = false;
                        
             for (int i = 0; i < a.Length; i++)
@@ -15,19 +13,21 @@ namespace SumOfTwoArr
                 
                 for (int j = 0; j < b.Length; j++)
                 {
-                    v = a[i] + b[i];
-                    sumPossible = true;
-                                   
+                    v = a[i] + b[j];
+                    sumPossible = true;   
                 }
             }
-            if(sumPossible == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return sumPossible;
+        }
+
+        public bool SumOfTwoV2(int[] firstTable, int[] secondTable, int sum)
+        {
+            var cos = from a in firstTable
+                      from b in secondTable
+                      select a + b;
+
+            return cos.Contains(sum);
         }
     }
 }
